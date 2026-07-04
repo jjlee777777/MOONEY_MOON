@@ -135,21 +135,26 @@ nav a:hover{
   margin-bottom:45px;
 }
 
+
 .main-btn,
-.btn-main{
+.btn-main,
+.btn-line{
   display:inline-block;
-  background:var(--gold);
-  color:var(--black);
   padding:18px 42px;
+  border:2px solid var(--gold);
   border-radius:50px;
+  color:var(--gold);
+  background:transparent;
   font-weight:700;
   transition:.3s;
 }
 
 .main-btn:hover,
-.btn-main:hover{
+.btn-main:hover,
+.btn-line:hover{
+  background:var(--gold);
+  color:var(--black);
   transform:translateY(-5px);
-  background:#e0b876;
 }
 
 .hero-image{
@@ -684,4 +689,27 @@ nav a:hover{
     padding-top:190px;
   }
 
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    align-items:center;
+    margin-top:45px;
+}
+
+.btn-line{
+    display:inline-block;
+    padding:18px 42px;
+    border:2px solid var(--gold);
+    border-radius:50px;
+    color:var(--gold);
+    font-weight:700;
+    transition:.3s;
+}
+
+.btn-line:hover{
+    background:var(--gold);
+    color:var(--black);
+    transform:translateY(-5px);
 }
