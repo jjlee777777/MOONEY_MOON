@@ -1,0 +1,152 @@
+@charset "UTF-8";
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+table,
+th,
+td,
+form,
+fieldset,
+legend,
+input,
+textarea,
+button,
+select {
+  margin: 0;
+  padding: 0;
+}
+body,
+input,
+textarea,
+select,
+button,
+table {
+  font-family: Helvetica, '나눔고딕', 'Nanum Gothic', '나눔스퀘어', 'Nanum Square', 'Apple SD Gothic Neo',
+    'Malgun Gothic', '맑은 고딕', Dotum, '돋움', sans-serif;
+  font-size: 12px;
+  line-height: 1.5em;
+}
+body {
+  position: relative;
+  background-color: #ffffff;
+}
+img,
+fieldset {
+  border: 0;
+}
+ul,
+ol {
+  list-style: none;
+}
+em,
+address {
+  font-style: normal;
+}
+a,
+a:hover,
+a:active,
+a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+table {
+  border-collapse: collapse;
+}
+hr {
+  display: none !important;
+}
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+img {
+  vertical-align: top;
+}
+.blind,
+.u_skip {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+* {
+  overflow-anchor: none;
+}
+
+/* SE 3.0 이하 대응 코드 */
+
+/* SE 뷰어영역 */
+.detail_viewer .se_textView span {
+  vertical-align: baseline;
+}
+
+/* SE 상품 태그(태깅 상품 툴팁 내용 -> product_tagging.css) */
+.detail_viewer .se_point_tag_tooltip .se_point_tag_button {
+  background: url(img/svg/icon/icon_plus_squared_31x31_white.svg) no-repeat;
+  background-size: auto;
+}
+.detail_viewer .se_point_tag_tooltip.is-active .se_point_tag_button {
+  background: url(img/svg/icon/icon_x_squared_31x31_black.svg) no-repeat;
+  background-size: auto;
+}
+
+/* 센터 상품조회/수정 미리보기 > 미지원 첨부파일 */
+.detail_viewer .editor_preview {
+  width: 298px;
+  height: 108px;
+  border: 1px solid #ededed;
+  background-color: #fafafa;
+  text-align: center;
+}
+.detail_viewer .editor_preview .preview_txt {
+  padding-top: 26px;
+  font-family: '나눔고딕', 'Nanum Gothic', '굴림', Gulim, sans-serif;
+  font-size: 18px;
+  color: #1088ed;
+  letter-spacing: -1px;
+}
+.detail_viewer .editor_preview .preview_txt_depth {
+  margin-top: 2px;
+  font-family: '나눔고딕', 'Nanum Gothic', '굴림', Gulim, sans-serif;
+  font-size: 13px;
+  color: #848992;
+  letter-spacing: -1px;
+}
+.detail_viewer .editor_preview .ico {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  margin: -2px 5px 0 0;
+  background: url(https://static-resource-smartstore.pstatic.net/common/img/storefarm/front/common/point_ico.png) 0 0 no-repeat;
+  vertical-align: top;
+}
+
+/* TODO delete me */
+.dev_box {
+  border: 1px solid #0abe16;
+  margin: 1px;
+}
+.dev_box:before {
+  content: attr(data-desc);
+  background-color: #0abe16;
+  border: 2px solid #0abe16;
+  color: #ffffff;
+}
