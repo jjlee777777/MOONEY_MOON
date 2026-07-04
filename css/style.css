@@ -724,4 +724,7 @@ nav a:hover{
     object-position:center 45%;
 }
 
-
+.recipe-section .section-title span{
+    color:#000;
+    font-weight:700;
+}
