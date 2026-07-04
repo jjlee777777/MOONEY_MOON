@@ -715,3 +715,12 @@ nav a:hover{
     color:var(--black);
     transform:translateY(-5px);
 }
+
+.story-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 45%;
+}
+
+
