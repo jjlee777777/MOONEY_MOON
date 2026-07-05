@@ -4,15 +4,14 @@
 
 const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll("nav a");
+const menuToggle = document.querySelector(".menu-toggle");
+const nav = document.querySelector("nav");
 
 
-/* ===========================
-   ACTIVE MENU
-=========================== */
-
+/* ACTIVE MENU */
 function setActiveMenu() {
     let current = "";
-    const scrollPos = window.scrollY + 160;
+    const scrollPos = window.scrollY + 180;
 
     sections.forEach(section => {
         if (
@@ -33,10 +32,7 @@ function setActiveMenu() {
 }
 
 
-/* ===========================
-   SMOOTH SCROLL
-=========================== */
-
+/* SMOOTH SCROLL */
 function smoothScrollTo(targetY, duration) {
     const startY = window.scrollY;
     const distance = targetY - startY;
@@ -46,16 +42,14 @@ function smoothScrollTo(targetY, duration) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
 
-        
-		const ease = progress < 0.5
-    ? 4 * progress * progress * progress
-    : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-		
-		 
+        const ease = progress;
+
         window.scrollTo(0, startY + distance * ease);
 
         if (progress < 1) {
             requestAnimationFrame(animation);
+        } else {
+            setActiveMenu();
         }
     }
 
@@ -63,10 +57,7 @@ function smoothScrollTo(targetY, duration) {
 }
 
 
-/* ===========================
-   MENU CLICK
-=========================== */
-
+/* MENU CLICK */
 navLinks.forEach(link => {
     link.addEventListener("click", function(e) {
         e.preventDefault();
@@ -76,18 +67,28 @@ navLinks.forEach(link => {
 
         if (targetSection) {
             const headerHeight = document.querySelector(".main-header").offsetHeight;
-            const targetY = targetSection.offsetTop - headerHeight + 1;
+            const targetY = targetSection.offsetTop - headerHeight + 2;
+
+            nav.classList.remove("active");
+            menuToggle.classList.remove("active");
 
             smoothScrollTo(targetY, 1300);
+
+            navLinks.forEach(item => item.classList.remove("active"));
+            this.classList.add("active");
         }
     });
 });
 
 
-/* ===========================
-   WINDOW EVENT
-=========================== */
+/* MOBILE MENU */
+menuToggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
+    menuToggle.classList.toggle("active");
+});
 
+
+/* WINDOW EVENT */
 window.addEventListener("scroll", setActiveMenu);
 window.addEventListener("load", setActiveMenu);
 
