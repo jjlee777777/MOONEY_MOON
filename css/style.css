@@ -755,3 +755,25 @@ nav a:hover{
   }
 
 }
+/* ===========================
+   ACTIVE MENU
+=========================== */
+
+nav a{
+    color:#fff;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:var(--gold);
+}
+
+nav a.active{
+    color:var(--gold) !important;
+    font-weight:700;
+}
+
+nav a.active.shop-btn{
+    background:var(--gold);
+    color:#111 !important;
+}
