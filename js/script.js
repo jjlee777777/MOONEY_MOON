@@ -46,8 +46,12 @@ function smoothScrollTo(targetY, duration) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
 
-        const ease = 1 - Math.pow(1 - progress, 3);
-
+        
+		const ease = progress < 0.5
+    ? 4 * progress * progress * progress
+    : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+		
+		 
         window.scrollTo(0, startY + distance * ease);
 
         if (progress < 1) {
