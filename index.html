@@ -270,45 +270,7 @@
 
 </footer>		
 	
-<script>
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll("nav a");
-
-function setActiveMenu() {
-
-    let current = "";
-
-    const scrollPos = window.scrollY + 150;
-
-    sections.forEach(section => {
-
-        if (
-            scrollPos >= section.offsetTop &&
-            scrollPos < section.offsetTop + section.offsetHeight
-        ) {
-            current = section.id;
-        }
-
-    });
-
-    navLinks.forEach(link => {
-
-        link.classList.remove("active");
-
-        if(link.getAttribute("href") === "#" + current){
-            link.classList.add("active");
-        }
-
-    });
-
-}
-
-window.addEventListener("scroll", setActiveMenu);
-window.addEventListener("load", setActiveMenu);
-
-setActiveMenu();
-</script>
-
+<script src="js/script.js"></script>
 	
 	
 </body>
