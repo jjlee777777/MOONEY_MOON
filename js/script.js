@@ -60,6 +60,39 @@ function smoothScrollTo(targetY, duration) {
 /* MENU CLICK */
 navLinks.forEach(link => {
     link.addEventListener("click", function(e) {
+
+        const targetId = this.getAttribute("href");
+
+        // 외부 링크는 그대로 이동
+        if (!targetId.startsWith("#")) {
+            nav.classList.remove("active");
+            menuToggle.classList.remove("active");
+            return;
+        }
+
+        e.preventDefault();
+
+        const targetSection = document.querySelector(targetId);
+
+        if (targetSection) {
+            const headerHeight = document.querySelector(".main-header").offsetHeight;
+            const targetY = targetSection.offsetTop - headerHeight + 2;
+
+            nav.classList.remove("active");
+            menuToggle.classList.remove("active");
+
+            smoothScrollTo(targetY, 1300);
+
+            navLinks.forEach(item => item.classList.remove("active"));
+            this.classList.add("active");
+        }
+    });
+});
+
+
+/* MENU CLICK 
+navLinks.forEach(link => {
+    link.addEventListener("click", function(e) {
         e.preventDefault();
 
         const targetId = this.getAttribute("href");
@@ -78,7 +111,7 @@ navLinks.forEach(link => {
             this.classList.add("active");
         }
     });
-});
+});   */
 
 
 /* MOBILE MENU */
